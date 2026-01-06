@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹跳小球游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-basketball-ball"></i> 弹跳小球游戏</h1>
+            <p class="subtitle">控制小球弹跳，收集星星，避开红色障碍物！</p>
+        </header>
+
+        <div class="game-stats">
+            <div class="stat">
+                <span>分数:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="stat">
+                <span>生命值:</span>
+                <span id="lives">3</span>
+            </div>
+            <div class="stat">
+                <span>等级:</span>
+                <span id="level">1</span>
+            </div>
+            <div class="stat time">
+                <span>时间:</span>
+                <span id="time">0</span>秒
+            </div>
+        </div>
+
+        <div class="game-container">
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            <div class="controls">
+                <p><i class="fas fa-arrow-left"></i> 左箭头: 向左移动</p>
+                <p><i class="fas fa-arrow-right"></i> 右箭头: 向右移动</p>
+                <p><i class="fas fa-arrow-up"></i> 上箭头: 跳跃</p>
+                <p><i class="fas fa-space-shuttle"></i> 空格键: 超级跳</p>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button id="startBtn" class="btn start-btn">
+                <i class="fas fa-play"></i> 开始游戏
+            </button>
+            <button id="pauseBtn" class="btn pause-btn">
+                <i class="fas fa-pause"></i> 暂停
+            </button>
+            <button id="resetBtn" class="btn reset-btn">
+                <i class="fas fa-redo"></i> 重新开始
+            </button>
+            <button id="instructionsBtn" class="btn help-btn">
+                <i class="fas fa-question-circle"></i> 游戏说明
+            </button>
+        </div>
+
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> 游戏说明</h3>
+            <ul>
+                <li>使用键盘方向键控制小球移动和跳跃</li>
+                <li>收集黄色星星获得分数（每颗10分）</li>
+                <li>避开红色障碍物，碰到会减少生命值</li>
+                <li>收集5颗星星后进入下一关</li>
+                <li>每关会增加障碍物数量</li>
+                <li>生命值降为0时游戏结束</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 游戏结束弹窗 -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2 id="gameResult">游戏结束</h2>
+            <p>你的最终得分: <span id="finalScore">0</span></p>
+            <p>达到等级: <span id="finalLevel">1</span></p>
+            <button id="playAgainBtn" class="btn start-btn">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
